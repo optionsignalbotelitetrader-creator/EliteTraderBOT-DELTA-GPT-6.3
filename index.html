@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EliteTraderBOT V6.3 DELTA — Trading Algorítmico Inteligente</title>
-
 <style>
 :root{
   --bg:#000;
@@ -14,8 +13,9 @@
   --accent2:#00e676;
   --card:#111;
   --radius:12px;
-  --max-w:1000px;
+  --max-w:1100px;
 }
+
 body{
   margin:0;
   font-family:Arial, sans-serif;
@@ -23,49 +23,162 @@ body{
   color:var(--text);
   line-height:1.5;
 }
+
 a{color:var(--accent);text-decoration:none;}
 a:hover{color:var(--accent2);}
-.wrap{max-width:var(--max-w);margin:auto;padding:20px;}
-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-bottom:20px;}
-.logo{font-weight:bold;font-size:24px;color:var(--text);}
-.contact a{margin-left:12px;}
+
+.wrap{
+  max-width:var(--max-w);
+  margin:auto;
+  padding:20px;
+}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.logo{
+  font-weight:bold;
+  font-size:28px;
+  color:var(--text);
+}
+
+.contact a{
+  margin-left:12px;
+  font-weight:bold;
+}
+
+/* HERO */
 section{margin-bottom:40px;}
-h1,h2,h3,h4{margin:10px 0;}
-p{color:var(--muted);}
-.hero{display:flex;flex-wrap:wrap;gap:20px;background:var(--card);padding:20px;border-radius:var(--radius);}
+.hero{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+}
+
 .hero-left{flex:1;}
 .hero-right{flex:1;min-width:300px;background:var(--card);padding:20px;border-radius:var(--radius);}
-.metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
-.metric{background:var(--bg);padding:10px;border-radius:var(--radius);border:1px solid #222;}
+
+.metrics{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.metric{
+  background:var(--bg);
+  padding:10px;
+  border-radius:var(--radius);
+  border:1px solid #222;
+}
 .metric small{display:block;color:var(--muted);font-size:12px;}
 .metric strong{display:block;font-size:16px;color:#fff;margin-top:4px;}
 
-/* BENEFICIOS VIP */
-.vip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;}
-.vip{background:var(--card);padding:16px;border-radius:var(--radius);}
+/* VIP */
+.vip-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.vip{
+  background:var(--card);
+  padding:16px;
+  border-radius:var(--radius);
+}
 .vip h4{color:var(--accent);margin-bottom:8px;}
 .vip ul{margin:0;padding-left:18px;color:var(--text);font-size:14px;}
 
-/* EXCHANGES */
-.exchanges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;}
-.ex-logo{background:#222;padding:10px 16px;border-radius:var(--radius);color:var(--text);font-size:14px;}
+/* Exchanges */
+.exchanges{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:10px;
+}
+.ex-logo{
+  background:#222;
+  padding:10px 16px;
+  border-radius:var(--radius);
+  color:var(--text);
+  font-size:14px;
+}
 
-/* RESULTADOS BACKTEST */
-.results-chart{display:flex;gap:12px;align-items:flex-end;justify-content:space-around;max-width:800px;margin:auto;height:200px;padding:12px;background:#111;border-radius:var(--radius);}
-.results-chart .bar{width:40px;background:linear-gradient(180deg, var(--accent), var(--accent2));display:flex;flex-direction:column;justify-content:flex-end;align-items:center;border-radius:6px 6px 0 0;position:relative;transition:all 0.5s;}
-.results-chart .bar span{color:#fff;font-size:12px;margin-bottom:4px;}
-.results-chart .bar small{color:var(--muted);font-size:12px;margin-top:4px;}
-
-/* Animación de barras */
+/* Resultados / Backtest */
+.results-chart{
+  display:flex;
+  gap:12px;
+  align-items:flex-end;
+  justify-content:space-around;
+  max-width:800px;
+  margin:auto;
+  height:220px;
+  padding:12px;
+  background:#111;
+  border-radius:var(--radius);
+}
+.results-chart .bar{
+  width:40px;
+  background:linear-gradient(180deg, var(--accent), var(--accent2));
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  border-radius:6px 6px 0 0;
+  position:relative;
+  transition:all 0.5s;
+}
+.results-chart .bar span{
+  color:#fff;
+  font-size:12px;
+  margin-bottom:4px;
+}
+.results-chart .bar small{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:4px;
+}
 @keyframes growBar{from{height:0;} to{height:var(--bar-height);}}
-.results-chart .bar:nth-child(1){--bar-height:45%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(2){--bar-height:38%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(3){--bar-height:42%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(4){--bar-height:35%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(5){--bar-height:40%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(6){--bar-height:37%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(7){--bar-height:43%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(8){--bar-height:41%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(1){--bar-height:41%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(2){--bar-height:37%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(3){--bar-height:40%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(4){--bar-height:45%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(5){--bar-height:43%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(6){--bar-height:38%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(7){--bar-height:42%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(8){--bar-height:44%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(9){--bar-height:39%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(10){--bar-height:41%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(11){--bar-height:43%;animation:growBar 1s forwards;}
+.results-chart .bar:nth-child(12){--bar-height:46%;animation:growBar 1s forwards;}
+
+/* CTA */
+.cta{
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  text-align:center;
+  margin-top:20px;
+}
+.cta h3{color:var(--accent);}
+.cta a{
+  display:inline-block;
+  background:var(--accent);
+  color:#000;
+  padding:12px 24px;
+  border-radius:8px;
+  margin-top:10px;
+  font-weight:bold;
+}
+.cta a:hover{background:var(--accent2);}
 
 /* Footer */
 footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #222;font-size:14px;}
@@ -85,32 +198,36 @@ footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #2
     <div class="contact">
       <span>Contacto:</span>
       <a href="mailto:optionsignalbotelitetrader@gmail.com">Correo</a>
-      <a href="https://instagram.com/elitetraderbot" target="_blank">Instagram</a>
+      <a href="https://instagram.com/EliteTraderBOT" target="_blank">Instagram</a>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <h1>EliteTraderBOT</h1>
-      <p>Sistema Inteligente V6.3 DELTA. Trading Algorítmico con IA para maximizar tus oportunidades.</p>
+      <h1>EliteTraderBOT V6.3 DELTA</h1>
+      <p>Trading Algorítmico Inteligente con gestión de usuarios, configuración de operaciones, selección de mercados y divisas.</p>
       <div class="metrics">
         <div class="metric"><small>Rendimiento Mensual</small><strong>30-45%</strong></div>
-        <div class="metric"><small>Backtest Histórico</small><strong>6 Meses+</strong></div>
+        <div class="metric"><small>Backtest Histórico</small><strong>Últimos 12 meses</strong></div>
         <div class="metric"><small>Exchanges Compatibles</small><strong>Binance, Coinbase, Bybit</strong></div>
       </div>
     </div>
     <div class="hero-right">
-      <h3>Backtest Visual</h3>
+      <h3>Resultados Últimos 12 Meses</h3>
       <div class="results-chart">
-        <div class="bar"><span>45%</span><small>Ene</small></div>
-        <div class="bar"><span>38%</span><small>Feb</small></div>
-        <div class="bar"><span>42%</span><small>Mar</small></div>
-        <div class="bar"><span>35%</span><small>Abr</small></div>
-        <div class="bar"><span>40%</span><small>May</small></div>
-        <div class="bar"><span>37%</span><small>Jun</small></div>
-        <div class="bar"><span>43%</span><small>Jul</small></div>
-        <div class="bar"><span>41%</span><small>Ago</small></div>
+        <div class="bar"><span>41%</span><small>Ene</small></div>
+        <div class="bar"><span>37%</span><small>Feb</small></div>
+        <div class="bar"><span>40%</span><small>Mar</small></div>
+        <div class="bar"><span>45%</span><small>Abr</small></div>
+        <div class="bar"><span>43%</span><small>May</small></div>
+        <div class="bar"><span>38%</span><small>Jun</small></div>
+        <div class="bar"><span>42%</span><small>Jul</small></div>
+        <div class="bar"><span>44%</span><small>Ago</small></div>
+        <div class="bar"><span>39%</span><small>Sep</small></div>
+        <div class="bar"><span>41%</span><small>Oct</small></div>
+        <div class="bar"><span>43%</span><small>Nov</small></div>
+        <div class="bar"><span>46%</span><small>Dic</small></div>
       </div>
     </div>
   </section>
@@ -119,7 +236,7 @@ footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #2
   <section>
     <h2>¿Qué es EliteTraderBOT?</h2>
     <p>
-      EliteTraderBOT combina más de 3 años de desarrollo en trading automático con inteligencia artificial, diseñado para maximizar ganancias y minimizar riesgos, aprendiendo constantemente del mercado.
+      EliteTraderBOT es una herramienta gráfica profesional que combina trading algorítmico y gestión avanzada de usuarios. Permite configurar operaciones, seleccionar mercados, criptomonedas y divisas, aprendiendo dinámicamente de cada operación para maximizar ganancias y minimizar riesgos. Es ideal para traders principiantes y profesionales que buscan resultados consistentes.
     </p>
   </section>
 
@@ -133,13 +250,20 @@ footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #2
       </div>
       <div class="vip">
         <h4>Aprendizaje Guiado</h4>
-        <ul><li>Formación completa para todos los niveles</li></ul>
+        <ul><li>Formación completa desde principiante hasta estrategias avanzadas</li></ul>
       </div>
       <div class="vip">
         <h4>Equipo Activo</h4>
-        <ul><li>Traders profesionales compartiendo análisis</li></ul>
+        <ul><li>Únete al equipo y genera ganancias reales usando el bot</li></ul>
       </div>
     </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h3>Forma parte del Equipo Activo</h3>
+    <p>Contacta hoy y empieza a generar resultados reales con EliteTraderBOT.</p>
+    <a href="mailto:optionsignalbotelitetrader@gmail.com">Contacta Ahora</a>
   </section>
 
   <!-- Exchanges -->
@@ -156,7 +280,7 @@ footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #2
   <!-- FOOTER -->
   <footer>
     <p>© 2025 EliteTraderBOT | Todos los derechos reservados</p>
-    <p>Contacto: <a href="mailto:optionsignalbotelitetrader@gmail.com">Correo</a> | <a href="https://instagram.com/elitetraderbot" target="_blank">Instagram</a></p>
+    <p>Correo: <a href="mailto:optionsignalbotelitetrader@gmail.com">Correo</a> | <a href="https://instagram.com/EliteTraderBOT" target="_blank">Instagram</a></p>
   </footer>
 </div>
 </body>
