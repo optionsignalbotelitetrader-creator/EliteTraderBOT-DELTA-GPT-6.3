@@ -5,184 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EliteTraderBOT V6.3 DELTA — Trading Algorítmico Inteligente</title>
 <style>
-:root{
-  --bg:#000;
-  --text:#fff;
-  --muted:#ccc;
-  --accent:#00c853;
-  --accent2:#00e676;
-  --card:#111;
-  --radius:12px;
-  --max-w:1100px;
+:root {
+  --bg: #000;
+  --text: #fff;
+  --muted: #ccc;
+  --accent: #00c853;
+  --accent2: #00e676;
+  --card: #111;
+  --radius: 12px;
+  --max-w: 1100px;
 }
-
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
 }
-
-a{color:var(--accent);text-decoration:none;}
-a:hover{color:var(--accent2);}
-
-.wrap{
-  max-width:var(--max-w);
-  margin:auto;
-  padding:20px;
+.wrap {
+  max-width: var(--max-w);
+  margin: auto;
+  padding: 20px;
 }
-
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  margin-bottom:20px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
-
-.logo{
-  font-weight:bold;
-  font-size:28px;
-  color:var(--text);
+.logo {
+  font-weight: bold;
+  font-size: 28px;
+  color: var(--text);
 }
-
-.contact a{
-  margin-left:12px;
-  font-weight:bold;
+.contact a {
+  margin-left: 12px;
+  font-weight: bold;
+  color: var(--accent);
 }
-
-/* HERO */
-section{margin-bottom:40px;}
-.hero{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  background:var(--card);
-  padding:20px;
-  border-radius:var(--radius);
+.contact a:hover { color: var(--accent2); }
+/* Secciones */
+section { margin-bottom: 50px; }
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
 }
-
-.hero-left{flex:1;}
-.hero-right{flex:1;min-width:300px;background:var(--card);padding:20px;border-radius:var(--radius);}
-
-.metrics{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:10px;
+.hero-left { flex: 1; }
+.hero-right { flex: 1; min-width: 300px; background: var(--card); padding: 20px; border-radius: var(--radius); }
+.metrics {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
-
-.metric{
-  background:var(--bg);
-  padding:10px;
-  border-radius:var(--radius);
-  border:1px solid #222;
+.metric {
+  background: var(--bg);
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #222;
 }
-.metric small{display:block;color:var(--muted);font-size:12px;}
-.metric strong{display:block;font-size:16px;color:#fff;margin-top:4px;}
-
+.metric small { display: block; color: var(--muted); font-size: 12px; }
+.metric strong { display: block; font-size: 16px; color: #fff; margin-top: 4px; }
 /* VIP */
-.vip-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+.vip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 20px;
 }
-.vip{
-  background:var(--card);
-  padding:16px;
-  border-radius:var(--radius);
+.vip {
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
 }
-.vip h4{color:var(--accent);margin-bottom:8px;}
-.vip ul{margin:0;padding-left:18px;color:var(--text);font-size:14px;}
-
-/* Exchanges */
-.exchanges{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:10px;
-}
-.ex-logo{
-  background:#222;
-  padding:10px 16px;
-  border-radius:var(--radius);
-  color:var(--text);
-  font-size:14px;
-}
-
-/* Resultados / Backtest */
-.results-chart{
-  display:flex;
-  gap:12px;
-  align-items:flex-end;
-  justify-content:space-around;
-  max-width:800px;
-  margin:auto;
-  height:220px;
-  padding:12px;
-  background:#111;
-  border-radius:var(--radius);
-}
-.results-chart .bar{
-  width:40px;
-  background:linear-gradient(180deg, var(--accent), var(--accent2));
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  align-items:center;
-  border-radius:6px 6px 0 0;
-  position:relative;
-  transition:all 0.5s;
-}
-.results-chart .bar span{
-  color:#fff;
-  font-size:12px;
-  margin-bottom:4px;
-}
-.results-chart .bar small{
-  color:var(--muted);
-  font-size:12px;
-  margin-top:4px;
-}
-@keyframes growBar{from{height:0;} to{height:var(--bar-height);}}
-.results-chart .bar:nth-child(1){--bar-height:41%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(2){--bar-height:37%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(3){--bar-height:40%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(4){--bar-height:45%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(5){--bar-height:43%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(6){--bar-height:38%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(7){--bar-height:42%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(8){--bar-height:44%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(9){--bar-height:39%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(10){--bar-height:41%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(11){--bar-height:43%;animation:growBar 1s forwards;}
-.results-chart .bar:nth-child(12){--bar-height:46%;animation:growBar 1s forwards;}
-
+.vip h4 { color: var(--accent); margin-bottom: 8px; }
+.vip ul { margin: 0; padding-left: 18px; color: var(--text); font-size: 14px; }
 /* CTA */
-.cta{
-  background:var(--card);
-  padding:20px;
-  border-radius:var(--radius);
-  text-align:center;
-  margin-top:20px;
+.cta {
+  background: var(--card);
+  padding: 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  margin-top: 20px;
 }
-.cta h3{color:var(--accent);}
-.cta a{
-  display:inline-block;
-  background:var(--accent);
-  color:#000;
-  padding:12px 24px;
-  border-radius:8px;
-  margin-top:10px;
-  font-weight:bold;
+.cta h3 { color: var(--accent); }
+.cta a {
+  display: inline-block;
+  background: var(--accent);
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
 }
-.cta a:hover{background:var(--accent2);}
-
+.cta a:hover { background: var(--accent2); }
+/* Exchanges */
+.exchanges {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+.ex-logo {
+  background: #222;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 14px;
+}
+/* Bitcoin Price */
+#btc-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: var(--accent2);
+}
 /* Footer */
-footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #222;font-size:14px;}
-
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--muted);
+  border-top: 1px solid #222;
+  font-size: 14px;
+}
 /* Responsive */
 @media(max-width:768px){
   .hero{flex-direction:column;}
@@ -196,79 +147,86 @@ footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #2
   <header>
     <div class="logo">EliteTraderBOT</div>
     <div class="contact">
-      <span>Contacto:</span>
-      <a href="mailto:optionsignalbotelitetrader@gmail.com">Correo</a>
-      <a href="https://instagram.com/EliteTraderBOT" target="_blank">Instagram</a>
+      <span data-i18n="contact">Contacto:</span>
+      <a href="mailto:optionsignalbotelitetrader@gmail.com" data-i18n="email">Correo</a>
     </div>
   </header>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <h1>EliteTraderBOT V6.3 DELTA</h1>
-      <p>Trading Algorítmico Inteligente con gestión de usuarios, configuración de operaciones, selección de mercados y divisas.</p>
+      <h1 data-i18n="hero_title">EliteTraderBOT V6.3 DELTA</h1>
+      <p data-i18n="hero_subtitle">Trading Algorítmico Inteligente disponible en PC, Android, Mac y iOS.</p>
+      <div id="btc-price" data-i18n="loading_price">Cargando precio BTC...</div>
       <div class="metrics">
-        <div class="metric"><small>Rendimiento Mensual</small><strong>30-45%</strong></div>
-        <div class="metric"><small>Backtest Histórico</small><strong>Últimos 12 meses</strong></div>
-        <div class="metric"><small>Exchanges Compatibles</small><strong>Binance, Coinbase, Bybit</strong></div>
+        <div class="metric"><small data-i18n="monthly_return">Rendimiento Mensual</small><strong>30-45%</strong></div>
+        <div class="metric"><small data-i18n="backtest">Backtest Histórico</small><strong>12 meses</strong></div>
+        <div class="metric"><small data-i18n="exchanges">Exchanges Compatibles</small><strong>Binance, Coinbase, Bybit</strong></div>
       </div>
     </div>
     <div class="hero-right">
-      <h3>Resultados Últimos 12 Meses</h3>
-      <div class="results-chart">
-        <div class="bar"><span>41%</span><small>Ene</small></div>
-        <div class="bar"><span>37%</span><small>Feb</small></div>
-        <div class="bar"><span>40%</span><small>Mar</small></div>
-        <div class="bar"><span>45%</span><small>Abr</small></div>
-        <div class="bar"><span>43%</span><small>May</small></div>
-        <div class="bar"><span>38%</span><small>Jun</small></div>
-        <div class="bar"><span>42%</span><small>Jul</small></div>
-        <div class="bar"><span>44%</span><small>Ago</small></div>
-        <div class="bar"><span>39%</span><small>Sep</small></div>
-        <div class="bar"><span>41%</span><small>Oct</small></div>
-        <div class="bar"><span>43%</span><small>Nov</small></div>
-        <div class="bar"><span>46%</span><small>Dic</small></div>
-      </div>
+      <h3 data-i18n="results">Resultados en Demo</h3>
+      <p data-i18n="demo_info">El bot simula escenarios reales y permite pruebas en entorno seguro antes de invertir.</p>
     </div>
   </section>
 
   <!-- SOBRE -->
   <section>
-    <h2>¿Qué es EliteTraderBOT?</h2>
-    <p>
-      EliteTraderBOT es una herramienta gráfica profesional que combina trading algorítmico y gestión avanzada de usuarios. Permite configurar operaciones, seleccionar mercados, criptomonedas y divisas, aprendiendo dinámicamente de cada operación para maximizar ganancias y minimizar riesgos. Es ideal para traders principiantes y profesionales que buscan resultados consistentes.
+    <h2 data-i18n="about_title">¿Qué es EliteTraderBOT?</h2>
+    <p data-i18n="about_text">
+      Es una plataforma privada de trading algorítmico con gestión avanzada, panel de configuración, coordinación de traders y conexión directa a brokers.
     </p>
   </section>
 
   <!-- VIP -->
   <section>
-    <h2>Membresía VIP</h2>
+    <h2 data-i18n="vip_title">Membresía VIP</h2>
     <div class="vip-grid">
       <div class="vip">
-        <h4>Señales en Tiempo Real</h4>
-        <ul><li>Alertas precisas en WhatsApp y Telegram</li></ul>
+        <h4 data-i18n="vip_signals">Señales en Tiempo Real</h4>
+        <ul><li data-i18n="vip_signals_desc">Alertas precisas enviadas directamente</li></ul>
       </div>
       <div class="vip">
-        <h4>Aprendizaje Guiado</h4>
-        <ul><li>Formación completa desde principiante hasta estrategias avanzadas</li></ul>
+        <h4 data-i18n="vip_training">Entrenamiento Completo</h4>
+        <ul><li data-i18n="vip_training_desc">Desde principiante hasta estrategias avanzadas</li></ul>
       </div>
       <div class="vip">
-        <h4>Equipo Activo</h4>
-        <ul><li>Únete al equipo y genera ganancias reales usando el bot</li></ul>
+        <h4 data-i18n="vip_team">Trabajo en Equipo</h4>
+        <ul><li data-i18n="vip_team_desc">Traders coordinados para análisis paralelos</li></ul>
+      </div>
+      <div class="vip">
+        <h4 data-i18n="vip_price">Precio y Pagos</h4>
+        <ul>
+          <li data-i18n="vip_first">$100 el primer mes</li>
+          <li data-i18n="vip_second">$300/mes a partir del segundo</li>
+          <li data-i18n="vip_crypto">Pagos solo en BTC, ETH y SOL</li>
+        </ul>
       </div>
     </div>
   </section>
 
+  <!-- INDICADORES -->
+  <section>
+    <h2 data-i18n="indicators_title">Indicadores Técnicos</h2>
+    <p data-i18n="indicators_desc">EliteTraderBOT trabaja con los 20 indicadores más usados del análisis técnico:</p>
+    <ul>
+      <li>RSI, MACD, EMA, SMA, Bollinger Bands</li>
+      <li>Ichimoku, Fibonacci, VWAP, ADX, Stochastic</li>
+      <li>ATR, OBV, CCI, Williams %R, Momentum</li>
+      <li>ROC, Chaikin Money Flow, Parabolic SAR, Heikin Ashi, Pivot Points</li>
+    </ul>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
-    <h3>Forma parte del Equipo Activo</h3>
-    <p>Contacta hoy y empieza a generar resultados reales con EliteTraderBOT.</p>
-    <a href="mailto:optionsignalbotelitetrader@gmail.com">Contacta Ahora</a>
+    <h3 data-i18n="cta_title">Forma parte del Equipo Activo</h3>
+    <p data-i18n="cta_text">Contacta hoy y empieza a generar resultados reales con EliteTraderBOT.</p>
+    <a href="mailto:optionsignalbotelitetrader@gmail.com" data-i18n="cta_button">Contacta Ahora</a>
   </section>
 
   <!-- Exchanges -->
   <section>
-    <h2>Exchanges Compatibles</h2>
+    <h2 data-i18n="exchanges_title">Exchanges Compatibles</h2>
     <div class="exchanges">
       <div class="ex-logo">Binance</div>
       <div class="ex-logo">Coinbase</div>
@@ -279,9 +237,104 @@ footer{text-align:center;padding:20px;color:var(--muted);border-top:1px solid #2
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 EliteTraderBOT | Todos los derechos reservados</p>
-    <p>Correo: <a href="mailto:optionsignalbotelitetrader@gmail.com">Correo</a> | <a href="https://instagram.com/EliteTraderBOT" target="_blank">Instagram</a></p>
+    <p>© 2025 EliteTraderBOT | <span data-i18n="rights">Todos los derechos reservados</span></p>
+    <p><a href="mailto:optionsignalbotelitetrader@gmail.com" data-i18n="footer_email">Correo de contacto</a></p>
   </footer>
 </div>
+
+<script>
+// Traducciones básicas
+const translations = {
+  es: {
+    contact:"Contacto:",
+    email:"Correo",
+    hero_title:"EliteTraderBOT V6.3 DELTA",
+    hero_subtitle:"Trading Algorítmico Inteligente disponible en PC, Android, Mac y iOS.",
+    loading_price:"Cargando precio BTC...",
+    monthly_return:"Rendimiento Mensual",
+    backtest:"Backtest Histórico",
+    exchanges:"Exchanges Compatibles",
+    results:"Resultados en Demo",
+    demo_info:"El bot simula escenarios reales y permite pruebas en entorno seguro antes de invertir.",
+    about_title:"¿Qué es EliteTraderBOT?",
+    about_text:"Es una plataforma privada de trading algorítmico con gestión avanzada, panel de configuración, coordinación de traders y conexión directa a brokers.",
+    vip_title:"Membresía VIP",
+    vip_signals:"Señales en Tiempo Real",
+    vip_signals_desc:"Alertas precisas enviadas directamente",
+    vip_training:"Entrenamiento Completo",
+    vip_training_desc:"Desde principiante hasta estrategias avanzadas",
+    vip_team:"Trabajo en Equipo",
+    vip_team_desc:"Traders coordinados para análisis paralelos",
+    vip_price:"Precio y Pagos",
+    vip_first:"$100 el primer mes",
+    vip_second:"$300/mes a partir del segundo",
+    vip_crypto:"Pagos solo en BTC, ETH y SOL",
+    indicators_title:"Indicadores Técnicos",
+    indicators_desc:"EliteTraderBOT trabaja con los 20 indicadores más usados del análisis técnico:",
+    cta_title:"Forma parte del Equipo Activo",
+    cta_text:"Contacta hoy y empieza a generar resultados reales con EliteTraderBOT.",
+    cta_button:"Contacta Ahora",
+    exchanges_title:"Exchanges Compatibles",
+    rights:"Todos los derechos reservados",
+    footer_email:"Correo de contacto"
+  },
+  en: {
+    contact:"Contact:",
+    email:"Email",
+    hero_title:"EliteTraderBOT V6.3 DELTA",
+    hero_subtitle:"Smart Algorithmic Trading available on PC, Android, Mac and iOS.",
+    loading_price:"Loading BTC price...",
+    monthly_return:"Monthly Performance",
+    backtest:"Historical Backtest",
+    exchanges:"Compatible Exchanges",
+    results:"Demo Results",
+    demo_info:"The bot simulates real scenarios and allows testing in a safe environment before investing.",
+    about_title:"What is EliteTraderBOT?",
+    about_text:"It is a private algorithmic trading platform with advanced management, configuration panel, trader coordination and direct broker connection.",
+    vip_title:"VIP Membership",
+    vip_signals:"Real-Time Signals",
+    vip_signals_desc:"Accurate alerts sent directly",
+    vip_training:"Complete Training",
+    vip_training_desc:"From beginner to advanced strategies",
+    vip_team:"Teamwork",
+    vip_team_desc:"Coordinated traders for parallel analysis",
+    vip_price:"Price and Payments",
+    vip_first:"$100 first month",
+    vip_second:"$300/month from second month",
+    vip_crypto:"Payments only in BTC, ETH and SOL",
+    indicators_title:"Technical Indicators",
+    indicators_desc:"EliteTraderBOT works with the 20 most used indicators of technical analysis:",
+    cta_title:"Join the Active Team",
+    cta_text:"Contact us today and start getting real results with EliteTraderBOT.",
+    cta_button:"Contact Now",
+    exchanges_title:"Compatible Exchanges",
+    rights:"All rights reserved",
+    footer_email:"Contact email"
+  }
+};
+
+// Detectar idioma navegador
+const userLang = navigator.language.startsWith("en") ? "en" : "es";
+document.querySelectorAll("[data-i18n]").forEach(el=>{
+  const key = el.getAttribute("data-i18n");
+  if(translations[userLang][key]){
+    el.innerText = translations[userLang][key];
+  }
+});
+
+// Precio BTC en tiempo real desde Binance
+async function fetchBTCPrice(){
+  try {
+    const res = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT");
+    const data = await res.json();
+    const price = parseFloat(data.price).toFixed(2);
+    document.getElementById("btc-price").innerText = "BTC: $" + price;
+  } catch(e){
+    document.getElementById("btc-price").innerText = userLang==="en"?"Error loading price":"Error cargando precio";
+  }
+}
+fetchBTCPrice();
+setInterval(fetchBTCPrice, 10000);
+</script>
 </body>
 </html>
